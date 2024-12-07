@@ -1,7 +1,7 @@
 "use client";
 
 import useCountries from "@/app/hooks/useCountries";
-import Select from "react-select";
+import Select, { SingleValue } from "react-select";
 
 export type CountrySelectValue = {
   label: string;
@@ -26,7 +26,9 @@ const CountrySelect: React.FC<CountrySelectProps> = ({ value, onChange }) => {
         isClearable
         options={getAll()}
         value={value}
-         onChange={(value) => onChange(value as CountrySelectValue)}
+        onChange={(value: SingleValue<CountrySelectValue>) => 
+          onChange(value as CountrySelectValue)
+        }
         formatOptionLabel={(option: CountrySelectValue) => (
           <div className="flex flex-row items-center gap-3">
             <div>{option.flag}</div>
@@ -41,7 +43,7 @@ const CountrySelect: React.FC<CountrySelectProps> = ({ value, onChange }) => {
           input: () => "text-lg",
           option: () => "text-lg ",
         }}
-        theme={(theme) => ({
+        theme={(theme: any) => ({
           ...theme,
           borderRadius: 6,
           colors: {
