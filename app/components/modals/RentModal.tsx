@@ -124,7 +124,7 @@ const RentModal = () => {
   let bodyContent = (
     <div className="flex flex-col gap-4">
       <Heading
-        title="Which category best describes your place?"
+        title="Which university is your home close to?"
         subtitle="You can change this later"
       />
       <div

@@ -65,11 +65,6 @@ export const categories = [
     description: "Properties near Politecnico di Milano, Italy",
   },
   {
-    label: "CentraleSupélec",
-    icon: FaUniversity,
-    description: "Properties near CentraleSupélec, Paris-Saclay",
-  },
-  {
     label: "RWTH Aachen",
     icon: FaBuilding,
     description: "Properties near RWTH Aachen University, Germany",
