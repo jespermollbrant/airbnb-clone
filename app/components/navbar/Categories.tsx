@@ -12,8 +12,14 @@ import {
   GiForestCamp,
   GiIsland,
   GiWindmill,
+  GiCityCar,
+  GiModernCity,
+  GiShinyEntrance,
+  GiBirdHouse,
+  GiBookshelf,
+  GiFactory
 } from "react-icons/gi";
-import { FaSkiing } from "react-icons/fa";
+import { FaSkiing, FaUniversity, FaBuilding } from "react-icons/fa";
 import { BsSnow } from "react-icons/bs";
 import { IoDiamond } from "react-icons/io5";
 import { MdOutlineVilla } from "react-icons/md";
@@ -24,80 +30,70 @@ import styles from "./Categories.module.css";
 
 export const categories = [
   {
-    label: "Beach",
-    icon: TbBeach,
-    description: "This property is close to the beach!",
+    label: "Chalmers",
+    icon: GiFactory,
+    description: "Properties near Chalmers University of Technology, Sweden",
   },
   {
-    label: "Windmills",
-    icon: GiWindmill,
-    description: "This property is has windmills!",
-  },
-  {
-    label: "Modern",
+    label: "ETH Zürich",
     icon: MdOutlineVilla,
-    description: "This property is modern!",
+    description: "Properties near ETH Zürich, Switzerland",
   },
   {
-    label: "Countryside",
+    label: "TU Delft",
+    icon: GiWindmill,
+    description: "Properties near Technical University of Delft, Netherlands",
+  },
+  {
+    label: "KU Leuven",
     icon: TbMountain,
-    description: "This property is in the countryside!",
+    description: "Properties near KU Leuven, Belgium",
   },
   {
-    label: "Pools",
-    icon: TbPool,
-    description: "This is property has a beautiful pool!",
-  },
-  {
-    label: "Islands",
-    icon: GiIsland,
-    description: "This property is on an island!",
-  },
-  {
-    label: "Lake",
-    icon: GiBoatFishing,
-    description: "This property is near a lake!",
-  },
-  {
-    label: "Skiing",
-    icon: FaSkiing,
-    description: "This property has skiing activies!",
-  },
-  {
-    label: "Castles",
+    label: "Trinity College",
     icon: GiCastle,
-    description: "This property is an ancient castle!",
+    description: "Properties near Trinity College Dublin, Ireland",
   },
   {
-    label: "Caves",
-    icon: GiCaveEntrance,
-    description: "This property is in a spooky cave!",
+    label: "TU Berlin",
+    icon: GiCityCar,
+    description: "Properties near Technical University of Berlin, Germany",
   },
   {
-    label: "Camping",
-    icon: GiForestCamp,
-    description: "This property offers camping activities!",
+    label: "Politecnico Milano",
+    icon: GiModernCity,
+    description: "Properties near Politecnico di Milano, Italy",
   },
   {
-    label: "Arctic",
-    icon: BsSnow,
-    description: "This property is in arctic environment!",
+    label: "CentraleSupélec",
+    icon: FaUniversity,
+    description: "Properties near CentraleSupélec, Paris-Saclay",
   },
   {
-    label: "Desert",
-    icon: GiCactus,
-    description: "This property is in the desert!",
+    label: "RWTH Aachen",
+    icon: FaBuilding,
+    description: "Properties near RWTH Aachen University, Germany",
   },
   {
-    label: "Barns",
-    icon: GiBarn,
-    description: "This property is in a barn!",
+    label: "Mines ParisTech",
+    icon: GiShinyEntrance,
+    description: "Properties near École des Mines de Paris, France",
   },
   {
-    label: "Lux",
-    icon: IoDiamond,
-    description: "This property is brand new and luxurious!",
+    label: "TU Eindhoven",
+    icon: GiBirdHouse,
+    description: "Properties near Eindhoven University of Technology, Netherlands",
   },
+  {
+    label: "Groningen",
+    icon: GiBookshelf,
+    description: "Properties near University of Groningen, Netherlands",
+  },
+  {
+    label: "Politecnico Torino",
+    icon: FaBuilding,
+    description: "Properties near Politecnico di Torino, Italy",
+  }
 ];
 
 const Categories = () => {
