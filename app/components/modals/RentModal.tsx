@@ -245,8 +245,8 @@ const RentModal = () => {
     bodyContent = (
       <div className="flex flex-col gap-8">
         <Heading
-          title="Now let's set up your price"
-          subtitle="You can always edit this later"
+          title="Now let's set your monthly price"
+          subtitle="How much do you want to charge per month?"
         />
         <Input
           id="price"
