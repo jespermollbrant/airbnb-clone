@@ -5,11 +5,6 @@ import { User } from "@prisma/client";
 import { IconType } from "react-icons";
 import Avatar from "../Avatar";
 import ListingCategory from "./ListingCategory";
-import dynamic from "next/dynamic";
-
-const Map = dynamic(() => import("../Map"), {
-  ssr: false,
-});
 
 interface IListingInfoProps {
   user: User;
@@ -36,10 +31,6 @@ const ListingInfo: React.FC<IListingInfoProps> = ({
   locationValue,
   category,
 }) => {
-  const { getByValue } = useCountries();
-
-  const coordinates = getByValue(locationValue)?.latlng;
-
   return (
     <div className="col-span-4 flex flex-col gap-8">
       <div className="flex flex-col gap-2">
@@ -82,7 +73,12 @@ const ListingInfo: React.FC<IListingInfoProps> = ({
       <hr />
       <div className="text-lg font-light text-neutral-500">{description}</div>
       <hr />
-      <Map center={coordinates} />
+      <div className="text-lg font-semibold">
+        Distance from {category?.label}
+        <div className="text-neutral-500 font-light mt-2">
+          {locationValue} kilometers from university
+        </div>
+      </div>
     </div>
   );
 };
