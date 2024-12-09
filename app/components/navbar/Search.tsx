@@ -10,20 +10,19 @@ import { BiSearch } from "react-icons/bi";
 const Search = () => {
   const searchModal = useSearchModal();
   const params = useSearchParams();
-  const { getByValue } = useCountries();
 
-  const locationValue = params?.get("locationValue");
+  const category = params?.get("category");
   const startDate = params?.get("startDate");
   const endDate = params?.get("endDate");
   const guestCount = params?.get("guestCount");
 
   const locationLabel = useMemo(() => {
-    if (locationValue) {
-      return getByValue(locationValue as string)?.label;
+    if (category) {
+      return category;
     }
 
-    return "Anywhere";
-  }, [locationValue, getByValue]);
+    return "Any University";
+  }, [category]);
 
   const durationLabel = useMemo(() => {
     if (startDate && endDate) {

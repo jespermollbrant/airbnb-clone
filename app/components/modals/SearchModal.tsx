@@ -12,8 +12,10 @@ import useSearchModal from "@/app/hooks/useSearchModal";
 import Modal from "./Modal";
 import Calendar from "../Inputs/Calendar";
 import Counter from "../Inputs/Counter";
-import CountrySelect, { CountrySelectValue } from "../Inputs/CountrySelect";
+//import CountrySelect, { CountrySelectValue } from "../Inputs/CountrySelect";
+import CategoryInput from "../Inputs/CategoryInput";
 import Heading from "../Heading";
+import { categories } from "../navbar/Categories";
 
 enum STEPS {
   LOCATION = 0,
@@ -28,7 +30,7 @@ const SearchModal = () => {
 
   const [step, setStep] = useState(STEPS.LOCATION);
 
-  const [location, setLocation] = useState<CountrySelectValue>();
+  const [selectedUniversity, setSelectedUniversity] = useState<string>("");
   const [guestCount, setGuestCount] = useState(1);
   const [roomCount, setRoomCount] = useState(1);
   const [bathroomCount, setBathroomCount] = useState(1);
@@ -44,7 +46,7 @@ const SearchModal = () => {
         ssr: false,
       }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [location]
+    [selectedUniversity]
   );
 
   const onBack = useCallback(() => {
@@ -68,7 +70,7 @@ const SearchModal = () => {
 
     const updatedQuery: any = {
       ...currentQuery,
-      locationValue: location?.value,
+      category: selectedUniversity,
       guestCount,
       roomCount,
       bathroomCount,
@@ -96,7 +98,7 @@ const SearchModal = () => {
   }, [
     step,
     searchModal,
-    location,
+    selectedUniversity,
     router,
     guestCount,
     roomCount,
@@ -125,15 +127,27 @@ const SearchModal = () => {
   let bodyContent = (
     <div className="flex flex-col gap-8">
       <Heading
-        title="Where do you wanna go?"
-        subtitle="Find the perfect location!"
+        title="Which university are you looking for?"
+        subtitle="Find the perfect location near your university!"
       />
-      <CountrySelect
-        value={location}
-        onChange={(value) => setLocation(value as CountrySelectValue)}
-      />
-      <hr />
-      <Map center={location?.latlng} />
+      <div className="
+        grid 
+        grid-cols-1 
+        md:grid-cols-2 
+        gap-3 
+        max-h-[50vh] 
+        overflow-y-auto
+      ">
+        {categories.map((item) => (
+          <CategoryInput
+            key={item.label}
+            onClick={(value) => setSelectedUniversity(value)}
+            selected={selectedUniversity === item.label}
+            label={item.label}
+            icon={item.icon}
+          />
+        ))}
+      </div>
     </div>
   );
 
