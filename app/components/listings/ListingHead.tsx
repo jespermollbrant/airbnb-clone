@@ -12,6 +12,7 @@ interface IListingHeadProps {
   imageSrc: string;
   id: string;
   currentUser?: User | null;
+  category: string;
 }
 
 const ListingHead: React.FC<IListingHeadProps> = ({
@@ -20,16 +21,13 @@ const ListingHead: React.FC<IListingHeadProps> = ({
   imageSrc,
   id,
   currentUser,
+  category,
 }) => {
-  const { getByValue } = useCountries();
-
-  const location = getByValue(locationValue);
-
   return (
     <>
       <Heading
         title={title}
-        subtitle={`${location?.region}, ${location?.label}`}
+        subtitle={category}
       />
       <div
         className="
