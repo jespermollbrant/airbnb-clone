@@ -25,29 +25,13 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onChange, value }) => {
   return (
     <CldUploadWidget
       onUpload={handleUpload}
-      uploadPreset="Airbnb-clone"
+      uploadPreset={process.env.CLOUDINARY_UPLOAD_PRESET}
       options={{
         maxFiles: 1,
-        styles: {
-          palette: {
-            window: "#F5F5F5",
-            sourceBg: "#FFFFFF",
-            windowBorder: "#90a0b3",
-            tabIcon: "#69778A",
-            inactiveTabIcon: "#69778A",
-            menuIcons: "#69778A",
-            link: "#3B82F6",
-            action: "#8F5DA5",
-            inProgress: "#0194c7",
-            complete: "#53ad9d",
-            error: "#c43737",
-            textDark: "#90A0B3",
-            textLight: "#FFFFFF",
-          },
-          frame: {
-            background: "#67676700",
-          },
-        },
+        sources: ["local", "camera"],
+        resourceType: "image",
+        clientAllowedFormats: ["jpg", "jpeg", "png", "gif"],
+        maxFileSize: 10000000, // 10MB
       }}
     >
       {({ open }) => {
