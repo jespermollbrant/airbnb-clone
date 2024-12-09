@@ -81,12 +81,16 @@ const ListingClient: React.FC<IListingClientProps> = ({
 
   useEffect(() => {
     if (dateRange.startDate && dateRange.endDate) {
-      const monthCount = Math.ceil(
-        differenceInCalendarDays(dateRange.endDate, dateRange.startDate) / 30
+      const dayCount = differenceInCalendarDays(
+        dateRange.endDate,
+        dateRange.startDate
       );
+      
+      // Calculate months with decimal places for partial months
+      const monthCount = dayCount / 30;
 
-      if (monthCount && listing.price) {
-        setTotalPrice(monthCount * listing.price);
+      if (monthCount >= 0 && listing.price) {
+        setTotalPrice(Math.round(monthCount * listing.price));
       } else {
         setTotalPrice(listing.price);
       }
