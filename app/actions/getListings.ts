@@ -74,10 +74,25 @@ export default async function getListings(params: IListingParams) {
       orderBy: {
         createdAt: "desc",
       },
+      select: {
+        id: true,
+        title: true,
+        description: true,
+        imageSrc: true,
+        category: true,
+        roomCount: true,
+        bathroomCount: true,
+        guestCount: true,
+        locationValue: true,
+        price: true,
+        userId: true,
+        createdAt: true
+      }
     });
 
     return listings;
   } catch (error: any) {
-    throw new Error(error.message);
+    console.error('Database Error:', error);
+    return [];
   }
 }
