@@ -45,7 +45,7 @@ const TripsClient: React.FC<TripsClientProps> = ({
 
   return (
     <Container>
-      <Heading title="Trips" subtitle="Your upcoming trips" />
+      <Heading title="Accommodations" subtitle="Your upcoming accommodations" />
       <div
         className="
           mt-10
