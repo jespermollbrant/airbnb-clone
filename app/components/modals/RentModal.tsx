@@ -7,7 +7,7 @@ import Heading from "../Heading";
 import { categories } from "../navbar/Categories";
 import CategoryInput from "../Inputs/CategoryInput";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import CountrySelect from "../Inputs/CountrySelect";
+import DistanceSelect from "../Inputs/DistanceSelect";
 import dynamic from "next/dynamic";
 import Counter from "../Inputs/Counter";
 import ImageUpload from "../Inputs/ImageUpload";
@@ -156,14 +156,13 @@ const RentModal = () => {
     bodyContent = (
       <div className="flex flex-col gap-8">
         <Heading
-          title="Where's your place located?"
-          subtitle="Exact address will be shared with guests after booking is confirmed"
+          title="How far is your place from the university?"
+          subtitle="Help students find the perfect location"
         />
-        <CountrySelect
+        <DistanceSelect
           onChange={(value) => setCustomValue("location", value)}
           value={location}
         />
-        <Map center={location?.latlng} />
       </div>
     );
   }
