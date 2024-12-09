@@ -3,14 +3,17 @@ import { NextResponse } from "next/server";
 
 import prisma from "@/app/libs/prismadb";
 
-interface IListingParams {
+interface IParams {
   listingId?: string;
 }
 
-export async function DELETE(request: Request, params: IListingParams) {
-  const currenUser = await getCurrentUser();
+export async function DELETE(
+  request: Request,
+  { params }: { params: IParams }
+) {
+  const currentUser = await getCurrentUser();
 
-  if (!currenUser) {
+  if (!currentUser) {
     return NextResponse.error();
   }
 
@@ -23,7 +26,7 @@ export async function DELETE(request: Request, params: IListingParams) {
   const listing = await prisma.listing.deleteMany({
     where: {
       id: listingId,
-      userId: currenUser.id,
+      userId: currentUser.id,
     },
   });
 
