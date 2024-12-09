@@ -1,4 +1,5 @@
 import Select from "react-select";
+import { SingleValue } from "react-select";
 
 export type DistanceSelectValue = {
   label: string;
@@ -27,7 +28,7 @@ const DistanceSelect: React.FC<DistanceSelectProps> = ({ value, onChange }) => {
         isClearable
         options={distances}
         value={value}
-        onChange={(value) => onChange(value as DistanceSelectValue)}
+        onChange={(value: SingleValue<DistanceSelectValue>) => onChange(value as DistanceSelectValue)}
         formatOptionLabel={(option: DistanceSelectValue) => (
           <div className="flex flex-row items-center gap-3">
             <div>{option.label}</div>
@@ -38,7 +39,7 @@ const DistanceSelect: React.FC<DistanceSelectProps> = ({ value, onChange }) => {
           input: () => "text-lg",
           option: () => "text-lg",
         }}
-        theme={(theme) => ({
+        theme={(theme: any) => ({
           ...theme,
           borderRadius: 6,
           colors: {
