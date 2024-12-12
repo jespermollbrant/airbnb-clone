@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import { Toaster } from "react-hot-toast";
 import ClientOnly from "./components/ClientOnly";
 import Navbar from "./components/navbar/Navbar";
@@ -37,6 +38,7 @@ export default async function RootLayout({
           <div className="pb-20 pt-28">{children}</div>
           <Footer />
         </ClientOnly>
+        <Analytics />
       </body>
     </html>
   );
